@@ -14,26 +14,23 @@ export default function App() {
 
   const [loaded] = useFonts({
     "Manrope-Bold": require('./assets/fonts/Manrope-Bold.ttf'),
-    "Manrope-ExtraBold": require('./assets/fonts/Manrope-ExtraBold.ttf'),
-    "Manrope-ExtraLight": require('./assets/fonts/Manrope-ExtraLight.ttf'),
-    "Manrope-Light": require("./assets/fonts/Manrope-Light.ttf"),
-    "Manrope-Medium": require('./assets/fonts/Manrope-Medium.ttf'),
     "Manrope-Regular": require("./assets/fonts/Manrope-Regular.ttf"),
-    "Manrope-SemiBold": require('./assets/fonts/Manrope-SemiBold.ttf'),
-    "SpaceMono-Regular": require('./assets/fonts/SpaceMono-Regular.ttf')
+    "Spartan-Regular": require('./assets/fonts/Spartan-Regular.ttf')
   })
 
   if (!loaded) {
     return (
       <Text>Font is Loading.........</Text>
     )
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text preset="h1" style={{ color: colors.secondary }}>Welcome</Text>
+        <StatusBar style="auto" />
+      </View>
+    )
   }
-  return (
-    <View style={styles.container}>
-      <Text preset="h1" style={{ color: colors.lightOrange }}>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
 }
 
 const styles = StyleSheet.create({

@@ -1,5 +1,5 @@
 export const typography = {
-  primary: "Manrope-Medium",
+  primary: "Spartan-Regular",
   bold: "Manrope-Bold",
   regular: "Manrope-Regular"
 }

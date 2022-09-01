@@ -1,7 +1,7 @@
 import { colors, typography } from '../../theme'
 
 const BASE = {
-    fontFamily: typography.primary,
+
     fontSize: 15,
     color: colors.black
 }
