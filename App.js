@@ -3,6 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { useFonts } from "expo-font";
 import Text from './components/text/text';
 import { colors } from './theme';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from './Navigation';
+import GlobalStyles from './GlobalStyles';
 
 
 
@@ -24,10 +27,10 @@ export default function App() {
     )
   } else {
     return (
-      <View style={styles.container}>
-        <Text preset="h1" style={{ color: colors.secondary }}>Welcome</Text>
+      <SafeAreaProvider style={GlobalStyles.droidSafeArea} >
+        <Navigation />
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaProvider>
     )
   }
 
