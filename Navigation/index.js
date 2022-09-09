@@ -78,13 +78,13 @@ function CartStackScreen() {
 
 function TabBarIcon({ fontFamily, name, color }) {
     if (fontFamily === 'MaterialCommunityIcons') {
-        return <MaterialCommunityIcons name={name} size={24} color={color} />
+        return <MaterialCommunityIcons name={name} size={30} color={color} />
     }
     else if (fontFamily === "Ionicons") {
-        return <Ionicons name={name} size={24} color={color} />
+        return <Ionicons name={name} size={30} color={color} />
     }
     else if (fontFamily === "SimpleLineIcons") {
-        return <SimpleLineIcons name={name} size={24} color={color} />
+        return <SimpleLineIcons name={name} size={30} color={color} />
     }
 }
 
@@ -94,7 +94,12 @@ export default function Navigation() {
         <NavigationContainer theme={THEME}  >
             <Tab.Navigator
                 initialRouteName='Home'
-                screenOptions={{ headerShown: false, tabBarActiveTintColor: colors.primary }}>
+                screenOptions={{
+                    headerShown: false, tabBarActiveTintColor: colors.primary, tabBarStyle: { paddingBottom: 10, height: 70 },
+                    tabBarLabelStyle: {
+                        fontSize: 14
+                    },
+                }}>
                 <Tab.Screen
                     options={{
                         title: "Home",

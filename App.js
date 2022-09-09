@@ -6,6 +6,8 @@ import { colors } from './theme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './Navigation';
 import GlobalStyles from './GlobalStyles';
+import { Provider } from 'react-redux';
+import store from './redux';
 
 
 
@@ -27,10 +29,13 @@ export default function App() {
     )
   } else {
     return (
-      <SafeAreaProvider style={GlobalStyles.droidSafeArea} >
-        <Navigation />
-        <StatusBar style="auto" />
-      </SafeAreaProvider>
+      <Provider store={store}>
+        <SafeAreaProvider style={GlobalStyles.droidSafeArea} >
+          <Navigation />
+          <StatusBar style="auto" />
+        </SafeAreaProvider>
+      </Provider>
+
     )
   }
 
