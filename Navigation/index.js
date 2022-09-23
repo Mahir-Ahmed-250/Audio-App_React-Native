@@ -97,7 +97,7 @@ export default function Navigation() {
                 screenOptions={{
                     headerShown: false, tabBarActiveTintColor: colors.primary, tabBarStyle: { paddingBottom: 10, height: 70 },
                     tabBarLabelStyle: {
-                        fontSize: 14
+                        fontSize: 12
                     },
                 }}>
                 <Tab.Screen
@@ -128,7 +128,7 @@ export default function Navigation() {
                 />
                 <Tab.Screen
                     options={{
-                        title: "Earphone",
+                        title: "Earphones",
                         tabBarIcon: ({ color }) =>
                             <TabBarIcon
                                 fontFamily={"SimpleLineIcons"}
@@ -142,7 +142,7 @@ export default function Navigation() {
                 />
                 <Tab.Screen
                     options={{
-                        title: "Speaker",
+                        title: "Speakers",
                         tabBarIcon: ({ color }) =>
                             <TabBarIcon
                                 fontFamily={"MaterialCommunityIcons"}
