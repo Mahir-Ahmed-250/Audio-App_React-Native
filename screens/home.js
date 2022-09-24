@@ -92,8 +92,6 @@ export default function Home({ navigation }) {
     const status = useSelector(selectStatus);
     const featureProducts = useSelector(selectFeaturedProducts);
     const { width, height } = useWindowDimensions();
-
-    console.log(featureProducts)
     useEffect(() => {
         if (status === "idle") {
             dispatch(fetchProducts())

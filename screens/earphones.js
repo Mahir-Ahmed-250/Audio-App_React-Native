@@ -9,9 +9,11 @@ import CategoryTitle from '../components/category-title';
 import { colors, spacing } from '../theme';
 import Footer from '../components/footer';
 
-export default function Earphones() {
+export default function Earphones({ navigation }) {
     const earphones = useSelector(selectEarphones);
-
+    const onPressProduct = (id) => {
+        navigation.navigate("Details", { id: id })
+    }
     return (
         <ScrollView>
             <BannerTitle />

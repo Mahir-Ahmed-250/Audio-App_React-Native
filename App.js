@@ -7,13 +7,13 @@ import Navigation from './Navigation';
 import GlobalStyles from './GlobalStyles';
 import { Provider } from 'react-redux';
 import store from './redux';
-import { useState } from 'react';
 import { colors } from './theme';
+import FlashMessage from 'react-native-flash-message';
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
 
-
-
-
+let persistor = persistStore(store)
 
 
 export default function App() {
@@ -33,15 +33,21 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-
-        <SafeAreaProvider style={GlobalStyles.droidSafeArea}>
-          <Navigation />
-          <StatusBar
-            animated={true}
-            backgroundColor={colors.black}
-            style="light"
-          />
-        </SafeAreaProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <SafeAreaProvider style={GlobalStyles.droidSafeArea}>
+            <Navigation />
+            <StatusBar
+              animated={true}
+              backgroundColor={colors.black}
+              style="light"
+            />
+            <FlashMessage
+              position="top"
+              floating
+              statusBarHeight={40}
+            />
+          </SafeAreaProvider>
+        </PersistGate >
       </Provider>
 
     )

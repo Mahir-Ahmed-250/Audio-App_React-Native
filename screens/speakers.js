@@ -9,9 +9,11 @@ import CategoryTitle from '../components/category-title';
 import { colors, spacing } from '../theme';
 import Footer from '../components/footer';
 
-export default function Speakers() {
+export default function Speakers({ navigation }) {
     const speakers = useSelector(selectSpeakers);
-
+    const onPressProduct = (id) => {
+        navigation.navigate("Details", { id: id })
+    }
     return (
         <ScrollView>
             <BannerTitle />

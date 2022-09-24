@@ -6,8 +6,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing } from '../theme';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectProductsById } from '../redux/productSlice';
-
+import { showMessage } from 'react-native-flash-message';
 import Button from '../components/button';
+import CounterButton from '../components/counterButton';
+import { addToCart } from '../redux/cartSlice';
 
 
 
@@ -24,6 +26,7 @@ export default function ProductDetails({ navigation, route }) {
         item,
         images,
     } = product;
+
     const [amount, setAmount] = useState(0);
     const dispatch = useDispatch();
 
@@ -49,13 +52,17 @@ export default function ProductDetails({ navigation, route }) {
         dispatch(addToCart({ cartProduct }));
 
         // show success message
-
+        showMessage({
+            message: 'Product Added Successfully',
+            type: 'success',
+        });
     };
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>
                 <BannerTitle />
+
                 <Pressable onPress={() => navigation.goBack()}>
                     <Ionicons
                         name="arrow-back-sharp"
@@ -97,12 +104,13 @@ export default function ProductDetails({ navigation, route }) {
                             alignItems: 'center',
                             marginVertical: spacing[6],
                         }}>
-
+                        <CounterButton amount={amount} setAmount={setAmount} />
                         <Button
                             title="Add to cart"
                             style={{ marginLeft: spacing[4] }}
                             onPress={add}
                         />
+
                     </View>
 
                     <View style={{ marginVertical: spacing[5] }}>
