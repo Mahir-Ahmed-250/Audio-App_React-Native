@@ -10,6 +10,8 @@ import Details from '../screens/product-details';
 import Speakers from '../screens/speakers';
 import { colors } from '../theme';
 import { Ionicons, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons"
+import { useSelector } from 'react-redux';
+import { selectCartLength } from '../redux/cartSlice';
 
 
 const THEME = {
@@ -90,6 +92,7 @@ function TabBarIcon({ fontFamily, name, color }) {
 
 
 export default function Navigation() {
+    const cartLength = useSelector(selectCartLength)
     return (
         <NavigationContainer theme={THEME}  >
             <Tab.Navigator
@@ -156,12 +159,14 @@ export default function Navigation() {
                 <Tab.Screen
                     options={{
                         title: "Cart",
-                        tabBarIcon: ({ color }) =>
+                        tabBarIcon: ({ color }) => (
                             <TabBarIcon
                                 fontFamily={"Ionicons"}
                                 name="cart-outline"
                                 color={color}
                             />
+                        ),
+                        tabBarBadge: cartLength > 0 ? cartLength : null
                     }}
                     name="CartTab"
                     component={CartStackScreen}
